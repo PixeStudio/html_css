@@ -1,0 +1,11 @@
+# systemowe
+.DS_Store
+Thumbs.db
+
+# edytory
+.vscode/
+*.code-workspace
+
+# inne
+node_modules/
+dist/
