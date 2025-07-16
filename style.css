@@ -74,6 +74,8 @@ main {
   align-items: flex-start;
   z-index: 1;
   position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 footer {
@@ -90,19 +92,42 @@ footer {
 .card {
   width: 300px;
   display: grid;
+  position: relative;
   grid-template-rows: auto 1fr auto auto;
   gap: 0.5rem;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
   border-radius: 10px;
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(68, 62, 62, 0.3);
+  transition: box-shadow 0.3s, transform 0.3s;
   z-index: 2;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0);
+  transition: background 0.3s;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.card:hover::after {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.card:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.36);
+  transform: translateY(-3px) scale(1.03);
 }
 
 .card img {
   width: 100%;
   border-radius: 6px;
+  margin-bottom: 1rem;
 }
 
 .card h3 {
@@ -113,19 +138,49 @@ footer {
 
 .card p {
   font-size: 0.9rem;
-  color: #ddd;
+  line-height: 1.3rem;
+  color: #f1f1f1;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+
 }
 
 .card button {
   padding: 0.5rem;
   border: none;
-  background-color: #4CAF50;
+  background-color: #0066ff;
   color: white;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  z-index: 3;
 }
 
 .card button:hover {
-  background-color: #388E3C;
+  background-color: #0459d8;
 }
+
+
+/*FOOTER*/
+
+footer {
+  grid-area: footer;
+  padding: 1rem;
+  color: white;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10%;
+  background: linear-gradient(to top, transparent, rgba(87,87,87, 0.4));
+  pointer-events: none;
+  z-index: -1;
+}
+
