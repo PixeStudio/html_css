@@ -25,7 +25,7 @@ body::before {
   z-index: 0;
 }
 
-/* komponentowe obszary */
+/* HEADER: logo, menu, logowanie */
 header {
   grid-area: header;
   display: flex;
@@ -54,16 +54,65 @@ header::after {
 header img {
   height: 60px;
   width: auto;
-  max-width: 200px;
 }
 
-header aside {
-  padding: 1rem;
-  font-size: 1rem;
-  color: white;
-  z-index: 1;
-  position: relative;
+header nav {
+  display: flex;
+  gap: 2rem;
+  flex: 1 1 auto;
+  justify-content: center;
 }
+
+header nav a {
+  color: #e0dddd;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+}
+
+header nav a.active,
+header nav a:hover {
+  color: #fff;
+  transition: color 0.2s;
+}
+
+header nav a::after {
+  content: "";
+  display: block;
+  height: 2.5px;
+  background: #2287ff;
+  border-radius: 2px;
+  margin-top: 4px;
+  width: 0;
+  transition: width 0.1s;
+}
+
+header nav a.active::after,
+header nav a:hover::after {
+  width: 100%;
+}
+
+header .login-btn {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  background: #2287ff;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+header .login-btn:hover {
+  background: #174fa3;
+}
+
+
+/* MAIN: karta produktu jako komponent */
 
 main {
   grid-area: main;
@@ -78,17 +127,6 @@ main {
   margin: 0 auto;
 }
 
-footer {
-  grid-area: footer;
-  padding: 1rem;
-  color: white;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 1;
-  position: relative;
-}
-
-/* karta produktu jako komponent */
 .card {
   width: 300px;
   display: grid;
@@ -164,12 +202,16 @@ footer {
 
 footer {
   grid-area: footer;
-  padding: 1rem;
-  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  color: #e0e0e0;
   text-align: center;
   position: relative;
   z-index: 1;
   background: transparent;
+  position: relative;
 }
 
 footer::before {
@@ -183,4 +225,3 @@ footer::before {
   pointer-events: none;
   z-index: -1;
 }
-
