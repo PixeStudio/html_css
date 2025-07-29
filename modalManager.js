@@ -1,4 +1,4 @@
-class modalManager {
+class ModalManager {
     constructor() {
         this.modals = document.querySelectorAll('.modal');
         this.init();
@@ -7,7 +7,7 @@ class modalManager {
     init() {
         this.modals.forEach(modal => {
             //close modal using x
-            const closeBtn = modal.querySelector('modal-close');
+            const closeBtn = modal.querySelector('.modal-close');
             if(closeBtn) {
                 closeBtn.addEventListener('click', () => this.close(modal));
             }
@@ -37,4 +37,4 @@ class modalManager {
     }
 }
 
-window.modalManager = modalManager;
+window.modalManager = ModalManager;
