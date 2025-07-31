@@ -1,4 +1,4 @@
-class ModalManager {
+export class ModalManager {
     constructor() {
         this.modals = document.querySelectorAll('.modal');
         this.init();
@@ -36,5 +36,3 @@ class ModalManager {
         modal.classList.remove('active');
     }
 }
-
-window.modalManager = ModalManager;

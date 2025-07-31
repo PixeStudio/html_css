@@ -1,14 +1,15 @@
-document.addEventListener('DOMContentLoaded', function() {
-    //MODAL MANAGER
+import { ModalManager } from "./modalManager.js";
 
+document.addEventListener('DOMContentLoaded', function() {
+
+    //MODAL MANAGER
     const modalManager = new ModalManager();
 
     document.querySelectorAll('.card').forEach(card => {
         card.addEventListener('click', function(e) {
-            if(e.target.tagName.toLowerCase() === 'button') return;
-        });
+            if (e.target.tagName.toLowerCase() === 'button') return;
 
-        //DOWNLOAD DATE FROM OPENNED CARD
+            //DOWNLOAD DATE FROM OPENNED CARD
         const imgSrc = card.querySelector('img').getAttribute('src');
         const title = card.querySelector('h3').textContent;
         const desc = card.querySelector('p').innerHTML;
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('modalDesc').innerHTML = desc;
 
         modalManager.open('productModal');
+        });
     });
 
 
